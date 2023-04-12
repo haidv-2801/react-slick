@@ -1,15 +1,21 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "./App1.css";
+
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+
 
 // import required modules
 import { Pagination } from "swiper";
+
+SwiperCore.use([Autoplay]);
+
+
 
 export default function App() {
 
@@ -25,11 +31,11 @@ export default function App() {
   return (
     <div className="container">
       <Swiper
-        autoplay={true}
         speed={2000}
         wrapperClass="wrapperClass"
         slidesPerView={1}
         spaceBetween={10}
+        autoplay={{ delay: 2000 }}
         pagination={{
           clickable: true,
         }}
@@ -40,11 +46,11 @@ export default function App() {
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 50,
+            spaceBetween: 20,
           },
         }}
         modules={[Pagination]}
@@ -53,8 +59,8 @@ export default function App() {
       {images.map(f=> <SwiperSlide><img src={f}></img></SwiperSlide>)}
       </Swiper>
       <Swiper
-        autoplay={true}
         speed={2000}
+        autoplay={{ delay: 2000 }}
         wrapperClass="wrapperClass"
         slidesPerView={1}
         spaceBetween={10}
@@ -69,10 +75,12 @@ export default function App() {
           768: {
             slidesPerView: 2,
             spaceBetween: 40,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
             spaceBetween: 50,
+            spaceBetween: 20,
           },
         }}
         modules={[Pagination]}
